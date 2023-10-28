@@ -1,7 +1,7 @@
-import { getAuthTokenForTask, getTask, sendAnswer } from "../../lib/auth";
+import { TaskResolver } from "../../lib/auth";
 
-const token = await getAuthTokenForTask("helloapi");
-const task = await getTask(token);
-
-const answer = task.cookie;
-await sendAnswer(token, answer);
+const taskResolver = new TaskResolver("helloapi");
+await taskResolver.getAuthTokenForTask();
+await taskResolver.fetchTask();
+const { cookie } = await taskResolver.getTask();
+taskResolver.sendAnswer(cookie);
