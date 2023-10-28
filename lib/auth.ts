@@ -50,14 +50,16 @@ export class TaskResolver {
     return this.#task;
   }
 
-  async sendAnswer(answer: string) {
+  async sendAnswer(answer: unknown) {
+    const body = JSON.stringify({
+      answer,
+    });
+
     const response = await fetch(
       `https://zadania.aidevs.pl/answer/${this.#token}`,
       {
         method: "POST",
-        body: JSON.stringify({
-          answer,
-        }),
+        body,
       }
     );
 
