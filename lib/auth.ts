@@ -6,6 +6,11 @@ type Response = {
   token: string;
 };
 
+export type Task = {
+  code: number;
+  msg: string;
+};
+
 export class TaskResolver {
   #apiKey = API_KEY;
   #token = "";
