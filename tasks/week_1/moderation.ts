@@ -1,6 +1,6 @@
-import OpenAI from "openai";
 import { TaskResolver, Task } from "../../lib/auth";
 import { isInputFlagged, moderateInput } from "../../lib/moderation";
+
 type ModerationTask = Task & {
   input: ReadonlyArray<string>;
 };

@@ -1,4 +1,4 @@
-const API_KEY = Bun.env.API_KEY;
+const AIDEVS_API_KEY = Bun.env.AIDEVS_API_KEY;
 
 type Response = {
   code: number;
@@ -12,7 +12,7 @@ export type Task = {
 };
 
 export class TaskResolver {
-  #apiKey = API_KEY;
+  #apiKey = AIDEVS_API_KEY;
   #token = "";
   taskName: string;
   #task: any;
@@ -27,7 +27,7 @@ export class TaskResolver {
       {
         method: "POST",
         body: JSON.stringify({
-          apikey: API_KEY,
+          apikey: this.#apiKey,
         }),
       }
     );
@@ -70,38 +70,3 @@ export class TaskResolver {
     return answerResponse;
   }
 }
-
-// export async function getAuthTokenForTask(taskName: string) {
-//   const response = await fetch(`https://zadania.aidevs.pl/token/${taskName}`, {
-//     method: "POST",
-//     body: JSON.stringify({
-//       apikey: API_KEY,
-//     }),
-//   });
-
-//   const json = (await response.json()) as Response;
-//   return json.token;
-// }
-
-// export async function getTask(token: string) {
-//   const response = await fetch(`https://zadania.aidevs.pl/task/${token}`);
-//   const task = await response.json();
-
-//   console.log({ task });
-//   return task;
-// }
-
-// export async function sendAnswer(token: string, answer: string) {
-//   const response = await fetch(`https://zadania.aidevs.pl/answer/${token}`, {
-//     method: "POST",
-//     body: JSON.stringify({
-//       answer,
-//     }),
-//   });
-
-//   const answerResponse = await response.json();
-
-//   console.log({ answerResponse });
-
-//   return answerResponse;
-// }
