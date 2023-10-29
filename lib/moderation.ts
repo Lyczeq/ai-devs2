@@ -1,8 +1,6 @@
 import OpenAI from "openai";
 
-const client = new OpenAI({
-  apiKey: Bun.env.OPENAI_KEY,
-});
+const client = new OpenAI();
 
 export async function moderateInput(input: string) {
   const response = await client.moderations.create({ input });
