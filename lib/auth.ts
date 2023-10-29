@@ -36,6 +36,21 @@ export class TaskResolver {
     this.#token = json.token;
   }
 
+  async sendData(options: FetchRequestInit) {
+    const response = await fetch(
+      `https://zadania.aidevs.pl/task/${this.#token}`,
+      {
+        method: "POST",
+        ...options,
+      }
+    );
+
+    const dataResponse = await response.json();
+    console.log({ dataResponse });
+
+    return dataResponse;
+  }
+
   async fetchTask() {
     const response = await fetch(
       `https://zadania.aidevs.pl/task/${this.#token}`

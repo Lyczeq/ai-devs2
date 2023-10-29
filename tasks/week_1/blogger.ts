@@ -12,7 +12,7 @@ const client = new OpenAI({
 const taskResolver = new TaskResolver("blogger");
 await taskResolver.getAuthTokenForTask();
 await taskResolver.fetchTask();
-const { blog, msg } = taskResolver.getTask() as BloggerTask;
+const { blog } = taskResolver.getTask() as BloggerTask;
 
 const text = await client.chat.completions.create({
   messages: [
