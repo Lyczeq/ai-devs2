@@ -1,7 +1,7 @@
 import { ChatOpenAI } from "langchain/chat_models/openai";
 import { Task, TaskResolver } from "../../lib/auth";
 import { HumanMessage, SystemMessage } from "langchain/schema";
-import OpenAI, { toFile } from "openai";
+import OpenAI from "openai";
 
 type WhisperTask = Task & {
   hint: string;
