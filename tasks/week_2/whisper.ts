@@ -20,7 +20,7 @@ const { msg } = taskResolver.getTask() as WhisperTask;
 
 const { content: url } = await chatModel.call([
   new SystemMessage(
-    "You'll be given the task that contains the url. Return url and nothing else"
+    "You'll be given the task that contains an url. Return the url and nothing else"
   ),
   new HumanMessage(msg),
 ]);
