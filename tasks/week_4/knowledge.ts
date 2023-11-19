@@ -73,8 +73,6 @@ if (content.includes("POPULATION")) {
   } else {
     taskResolver.sendAnswer(countryToFind.population);
   }
-
-  //   taskResolver.sendAnswer(content);
 } else if (content.includes("CURRENCY")) {
   const questionCurrency = content.replace("CURRENCY.", "");
   const rates = await getCurrencyRates();
@@ -89,5 +87,3 @@ if (content.includes("POPULATION")) {
 } else {
   taskResolver.sendAnswer(content);
 }
-
-console.log({ content });
